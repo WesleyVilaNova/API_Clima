@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    app:layout_constraintEnd_toStartOf="@+id/guideline4"
+    app:layout_constraintStart_toStartOf="@+id/guideline4"
+    tools:context=".ui.MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15sp"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/img_api_comeia" />
+
+    <EditText
+        android:id="@+id/edtBarra"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_gravity="center"
+        android:hint="@string/digite_o_nome_da_cidade"
+        android:inputType="textCapWords" />
+
+    <Button
+        android:id="@+id/btnConsultar"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="@string/consultar_clima" />
+
+
+    <TextView
+        android:id="@+id/textResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:hint="@string/resultado_da_pesquisa"
+        android:textAlignment="center" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInfoCidades"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/layout_recyclerviews_clima"
+        tools:itemCount="2"/>
+
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

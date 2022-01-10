@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ApiComeiaTeste</string>
+    <string name="digite_o_nome_da_cidade">Digite o nome da cidade</string>
+    <string name="resultado_da_pesquisa">""</string>
+    <string name="consultar_clima">Consultar Clima</string>
+
+    <string name="remover">Remover</string>
+    <string name="msg_remover">Deseja realmente remover?</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
+</resources>
