@@ -1,13 +1,13 @@
 package com.example.apicomeiateste.model;
 
-public class TempCidadeModel {
+public class CidadeModel {
     String tempMin;
     String tempMax;
     String cidade;
     String country;
     String humidade;
 
-    public TempCidadeModel(String tempMin, String tempMax, String cidade, String country, String humidade) {
+    public CidadeModel(String tempMin, String tempMax, String cidade, String country, String humidade) {
         this.tempMin = tempMin;
         this.tempMax = tempMax;
         this.cidade = cidade;

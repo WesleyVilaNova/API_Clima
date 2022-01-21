@@ -1,4 +1,4 @@
-package com.example.apicomeiateste.ui;
+package com.example.apicomeiateste.view;
 
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apicomeiateste.R;
-import com.example.apicomeiateste.adapters.Adapter_InfoCidades;
+import com.example.apicomeiateste.adapters.AdapterCidades;
 import com.example.apicomeiateste.interfaces.Interface_OnClick;
-import com.example.apicomeiateste.model.TempCidadeModel;
+import com.example.apicomeiateste.model.CidadeModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,29 +36,31 @@ public class MainActivity extends AppCompatActivity implements Interface_OnClick
     private Button botaoRecuperar;
     private TextView textResultado;
     private EditText edtBarra;
-    private TempCidadeModel objeto_inf_cidade;
+    private CidadeModel objeto_inf_cidade;
     private String cidade = "";
 
-    //Para recyclerView
     private RecyclerView recyclerInfoCidades;
-    Adapter_InfoCidades adapter_infoCidades;
+    private AdapterCidades adapterCidades;
 
-    ArrayList<TempCidadeModel> listInfoCidades = new ArrayList<TempCidadeModel>();
+    ArrayList<CidadeModel> listInfoCidades = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        iniciarComponentes();
+        iniciarCidadesPrimarias();
+        initRecyclerView();
+
+    }
+
+    private void iniciarComponentes() {
 
         botaoRecuperar = findViewById(R.id.btnConsultar);
         textResultado = findViewById(R.id.textResultado);
         edtBarra = findViewById(R.id.edtBarra);
         recyclerInfoCidades = findViewById(R.id.recyclerViewInfoCidades);
-
-
-        iniciarCidadesPrimarias();
-        initRecyclerView();
 
         botaoRecuperar.setOnClickListener(v -> {
             cidade = edtBarra.getText().toString();
@@ -76,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements Interface_OnClick
     }
 
     private void initRecyclerView() {
-        adapter_infoCidades = new Adapter_InfoCidades(listInfoCidades,this);
+        adapterCidades = new AdapterCidades(listInfoCidades,this);
 
         LinearLayoutManager layout = new LinearLayoutManager(this);
         recyclerInfoCidades.setLayoutManager(layout);
-        recyclerInfoCidades.setAdapter(adapter_infoCidades);
+        recyclerInfoCidades.setAdapter(adapterCidades);
     }
 
 
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements Interface_OnClick
         dialog.setTitle(getString(R.string.remover));
         dialog.setMessage(getString(R.string.msg_remover));
         dialog.setIcon(R.drawable.ic_baseline_warning_24);
+
         dialog.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -134,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements Interface_OnClick
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 listInfoCidades.remove(positionDaLista);
-                adapter_infoCidades.notifyDataSetChanged();
+                adapterCidades.notifyDataSetChanged();
                 Toast.makeText(MainActivity.this, "Excluído", Toast.LENGTH_SHORT).show();
             }
         });
@@ -216,8 +219,7 @@ public class MainActivity extends AppCompatActivity implements Interface_OnClick
                 temp_max = jsonObject1.getString("temp_max");
 
 
-                objeto_inf_cidade = new TempCidadeModel(temp_min,temp_max,city,nomePais,humidity);
-
+                objeto_inf_cidade = new CidadeModel(temp_min,temp_max,city,nomePais,humidity);
                 listInfoCidades.add(objeto_inf_cidade);
                 initRecyclerView();
 

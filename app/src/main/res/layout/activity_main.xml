@@ -8,13 +8,13 @@
     android:visibility="visible"
     app:layout_constraintEnd_toStartOf="@+id/guideline4"
     app:layout_constraintStart_toStartOf="@+id/guideline4"
-    tools:context=".ui.MainActivity">
+    tools:context=".view.MainActivity">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15sp"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".view.MainActivity">
 
     <ImageView
         android:id="@+id/imageLogo"
