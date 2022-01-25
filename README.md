@@ -3,7 +3,7 @@
 ### Api fornecida pelo site : https://api.openweathermap.org
 ##  O Projeto. 
 A API_Clima chamada no projeto é feita à "mão", ou seja, não foi usada nenhuma biblioteca (Retrofit, por exemplo). Usei a classe AsyncTask, o qual foi chamado primeiro os bytes, depois os caracteres e por fim convertido em String para leitura.
-### Foi usado também o Dialog para exclusão das cidades e implementado o Toast caso o campo fique vazio.
+### Foi usado também o  "AlertDialog.Builder" para exclusão das cidades e implementado o Toast caso o campo fique vazio.
 ### Nessa é possivel consultar varias cidades brasileiras ( não todas ) e mundiais.
 ### Como usar? Digite a cidade começando com a letra maiúscula, mas não se preocupe foi aplicado um InpuType no editText. Ao chamar a cidade escolhida se não aparecer nada é porque a mesma não se encontra na lista de cidades disponibilizadas pela API.
 ## Cidades exemplos para teste: Agrestina, Altinho, Arcoverde, Brasília, Vitória de Santo antão.
