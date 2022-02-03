@@ -1,5 +1,7 @@
 # Chamando API Clima do zero.
 
+### Acesso o vídeo do projeto: https://www.linkedin.com/feed/update/urn:li:activity:6894228898528190464/
+
 ### Api fornecida pelo site : https://api.openweathermap.org
 ##  O Projeto. 
 A API_Clima chamada no projeto é feita à "mão", ou seja, não foi usada nenhuma biblioteca (Retrofit, por exemplo). Usei a classe AsyncTask, o qual foi chamado primeiro os bytes, depois os caracteres e por fim convertido em String para leitura.
